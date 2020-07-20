@@ -36,6 +36,7 @@ class Dashboard:
         except:
             pass
 
+
     def set_players(self, players : list):
         for player in players:
             self.players.append({player:IntVar(value=0)})
@@ -169,8 +170,8 @@ class App:
     
     def __add_entrys(self):
         x, y = self.ENTRY_POS
-        Entry(self.root, textvariable=self.username).place(x=x, y=y)
-        Entry(self.root, textvariable=self.password, show="●").place(x=x, y=y*2)
+        ttk.Entry(self.root, textvariable=self.username).place(x=x, y=y)
+        ttk.Entry(self.root, textvariable=self.password, show="●").place(x=x, y=y*2)
     
     def __add_buttons(self):
         x, y = self.BUTTON_POS
