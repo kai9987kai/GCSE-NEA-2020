@@ -1,0 +1,3 @@
+GUI CREATE BY: SCR44GR.
+
+TO PLAY EXECUTE the "main.py" script
