@@ -120,10 +120,14 @@ class LeaderBoard:
         except:
             pass
         self.root.mainloop()
-
+    def EXITME(self):
+        self.root.destroy()
+        
     def __add_listbox(self):
         self.lst_box = Listbox(self.root)
         self.lst_box.place(x=10, y=50, width=180, height=350)
+        self.close_button = ttk.Button(self.root, text="Close", command=self.EXITME)
+        self.close_button.place(x=10, y=400, width=180, height=25)
 
     def __add_leaderboard(self):
         with open('Leaderboard.txt', 'r') as data:
