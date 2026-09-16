@@ -15,6 +15,13 @@ from src.paths import DATA_DIR_ENV
 class ScriptedRandom(random.Random):
     """A ``random.Random`` that hands back queued values, for exact scenarios."""
 
+    def __new__(cls, values: Iterable[int] = ()) -> ScriptedRandom:
+        # On Python 3.9 the first positional argument reaches
+        # ``_random.Random.__new__``, which tries to seed with it and raises
+        # ``TypeError: unhashable type: 'list'``. Swallow it here so the queue
+        # never reaches the seeding machinery on any version.
+        return super().__new__(cls)
+
     def __init__(self, values: Iterable[int]) -> None:
         super().__init__(0)
         self.values: list[int] = list(values)
