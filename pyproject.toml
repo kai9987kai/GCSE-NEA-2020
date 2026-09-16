@@ -1,0 +1,23 @@
+[project]
+name = "dice-game"
+version = "2.0.0"
+description = "A two-player dice game - the 2020 GCSE NEA, rebuilt."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.scripts]
+dice-game = "main:main"
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "C4"]
+# `from __future__ import annotations` is mandatory in every module, so the
+# modern `X | None` spelling stays importable on Python 3.9.
+ignore = []
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["E501"]
